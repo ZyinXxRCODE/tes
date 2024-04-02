@@ -1,0 +1,238 @@
+/* Setel semua elemen untuk tidak memiliki margin dan padding default,
+   dan menggunakan box-sizing border-box untuk menghitung ukuran elemen */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+/* Gaya untuk tampilan cetak */
+@media print {
+    .table,
+    .table__body {
+        overflow: visible;
+        height: auto !important;
+        width: auto !important;
+    }
+}
+
+/* Pengaturan tata letak body */
+body {
+    min-height: 100vh;
+    background: url(images/wintery-sunburst.png) center / cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Gaya untuk elemen utama tabel */
+main.table {
+    width: 82vw;
+    height: 90vh;
+    background-color: rgba(0, 0, 0, 0.485);
+    backdrop-filter: blur(7px);
+    box-shadow: 0 .4rem .8rem #0005;
+    border-radius: .8rem;
+    overflow: hidden;
+}
+
+/* Gaya untuk header tabel */
+.table__header {
+    width: 100%;
+    height: 10%;
+    background-color: #fff4;
+    padding: .8rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Gaya untuk kotak input pencarian */
+.table__header .input-group {
+    width: 35%;
+    height: 100%;
+    background-color: #fff5;
+    padding: 0 .8rem;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .2s;
+}
+
+/* Efek hover untuk kotak input pencarian */
+.table__header .input-group:hover {
+    width: 45%;
+    background-color: #fff8;
+    box-shadow: 0 .1rem .4rem #0002;
+}
+
+/* Gaya untuk gambar di dalam kotak input pencarian */
+.table__header .input-group img {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+/* Gaya untuk input pencarian */
+.table__header .input-group input {
+    width: 100%;
+    padding: 0 .5rem 0 .3rem;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+/* Gaya untuk badan tabel */
+.table__body {
+    width: 95%; /* Lebar badan tabel adalah 95% dari lebar parent */
+    max-height: calc(89% - 1.6rem); /* Ketinggian maksimum badan tabel adalah 89% dari lebar parent dikurangi 1.6rem */
+    background-color: #fffb; /* Warna latar belakang badan tabel */
+
+    margin: .8rem auto; /* Margin atas dan bawah adalah 0.8rem, sementara margin kiri dan kanan secara otomatis */
+    border-radius: .6rem; /* Radius sudut border */
+
+    overflow: auto; /* Mengaktifkan overflow scrolling untuk konten yang melebihi ketinggian badan tabel */
+    overflow: overlay; /* Efek overlay untuk scrollbar */
+
+}
+
+/* Gaya untuk scrollbar di badan tabel menggunakan vendor prefix */
+.table__body::-webkit-scrollbar {
+    width: 0.5rem; /* Lebar scrollbar */
+    height: 0.5rem; /* Tinggi scrollbar */
+}
+
+/* Gaya untuk bagian thumb dari scrollbar */
+.table__body::-webkit-scrollbar-thumb {
+    border-radius: .5rem; /* Radius sudut bagian thumb dari scrollbar */
+    background-color: #0004; /* Warna latar belakang bagian thumb dari scrollbar */
+    visibility: hidden; /* Thumb scrollbar disembunyikan secara default */
+}
+
+/* Menampilkan bagian thumb dari scrollbar saat badan tabel dihover */
+.table__body:hover::-webkit-scrollbar-thumb { 
+    visibility: visible; /* Menampilkan bagian thumb scrollbar saat badan tabel dihover */
+}
+
+/* Gaya untuk tabel */
+table {
+    width: 100%; /* Lebar tabel adalah 100% dari lebar parent */
+}
+
+/* Gaya untuk gambar di dalam sel tabel */
+td img {
+    width: 36px; /* Lebar gambar */
+    height: 36px; /* Tinggi gambar */
+    margin-right: .5rem; /* Margin kanan gambar */
+    border-radius: 50%; /* Border radius gambar untuk membuatnya berbentuk lingkaran */
+
+    vertical-align: middle; /* Penyusunan vertikal gambar di tengah */
+}
+
+/* Gaya untuk tabel, header, dan sel */
+table, th, td {
+    border-collapse: collapse; /* Menggabungkan border sel */
+    padding: 1rem; /* Padding untuk header dan sel tabel */
+    text-align: left; /* Penyusunan teks ke kiri di dalam sel tabel */
+}
+
+/* Gaya untuk header kolom tabel */
+thead th {
+    position: sticky; /* Membuat header tetap pada posisi saat di-scroll */
+    top: 0; /* Header akan menempel di bagian atas saat di-scroll */
+    left: 0; /* Header akan menempel di bagian kiri saat di-scroll */
+    background-color: #d5d1defe; /* Warna latar belakang header kolom tabel */
+    cursor: pointer; /* Kursor pointer saat dihover di atas header kolom tabel */
+    text-transform: capitalize; /* Merubah teks menjadi huruf kapital */
+}
+
+tbody tr:nth-child(even) {
+    background-color: #2c2e2e0f;
+}
+
+tbody tr {
+    --delay: .1s;
+    transition: .5s ease-in-out var(--delay), background-color 0s;
+}
+
+tbody tr.hide {
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+tbody tr:hover {
+    background-color: #fff6 !important;
+}
+
+tbody tr td,
+tbody tr td p,
+tbody tr td img {
+    transition: .2s ease-in-out;
+}
+
+tbody tr.hide td,
+tbody tr.hide td p {
+    padding: 0;
+    font: 0 / 0 sans-serif;
+    transition: .2s ease-in-out .5s;
+}
+
+tbody tr.hide td img {
+    width: 0;
+    height: 0;
+    transition: .2s ease-in-out .5s;
+}
+
+.status {
+    padding: .4rem 0;
+    border-radius: 2rem;
+    text-align: center;
+}
+
+.Warna {
+    background-color: #86e49d;
+    color: #006b21;
+}
+
+
+@media (max-width: 1000px) {
+    td:not(:first-of-type) {
+        min-width: 12.1rem;
+    }
+}
+
+thead th span.icon-arrow {
+    display: inline-block;
+    width: 1.3rem;
+    height: 1.3rem;
+    border-radius: 50%;
+    border: 1.4px solid transparent;
+    
+    text-align: center;
+    font-size: 1rem;
+    
+    margin-left: .5rem;
+    transition: .2s ease-in-out;
+}
+
+thead th:hover span.icon-arrow{
+    border: 1.4px solid #6c00bd;
+}
+
+thead th:hover {
+    color: #6c00bd;
+}
+
+thead th.active span.icon-arrow{
+    background-color: #6c00bd;
+    color: #fff;
+}
+
+thead th.asc span.icon-arrow{
+    transform: rotate(180deg);
+}
+
+thead th.active,tbody td.active {
+    color: #6c00bd;
+}
